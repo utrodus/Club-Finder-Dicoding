@@ -3,9 +3,21 @@ const main = () => {
     const buttonSearchElement = document.querySelector("#searchButtonElement");
     const clubListElement = document.querySelector("#clubList");
 
-    const onButtonSearchClicked = () => {
-        const dataSource = new DataSource(renderResult, fallbackResult);
-        dataSource.searchClub(searchElement.value);
+    const onButtonSearchClicked = async () => {
+        // const dataSource = new DataSource(renderResult, fallbackResult);
+        // dataSource.searchClub(searchElement.value);
+
+        // Penggunaan Promise
+        // DataSource.searchClub(searchElement.value).then(renderResult).catch(fallbackResult)
+
+        // Penggunaan promise dengan async await
+        try {
+            const results = await DataSource.searchClub(searchElement.value);
+            renderResult(results);
+        } catch (message) {
+            fallbackResult(message);
+        }
+
     };
 
     const renderResult = results => {
