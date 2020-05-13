@@ -1,5 +1,5 @@
+import clubs from './clubs.js';
 class DataSource {
-
     // constructor(onSuccess, onFailed) {
     //     this.onSuccess = onSuccess;
     //     this.onFailed = onFailed;
@@ -24,5 +24,6 @@ class DataSource {
             }
         })
     }
-
 }
+
+export default DataSource;
